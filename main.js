@@ -18,21 +18,22 @@ function verifContenu(mot) {
 function guessLetter() {
     let echec = 0;
     while(verifTab.join() !== tab.join()) { /*on ajoute .join() pour transformer en string afin que les tableaux soient comparable, sinon ça va renvoyer "false"*/
-        let lettre = prompt(`Entrez une lettre ! ${verifTab} ${memory} ${echec}`).toUpperCase();
+        let lettre = prompt(`Entrez une lettre : ${verifTab} // Essais : ${memory} // Nombre de vaines tentatives : ${echec}`).toUpperCase();
         verifContenu(lettre);
         let i = 0;
         while(i < tab.length) {
             if(lettre === tab[i]) {
                 verifTab.splice(i, 1, tab[i]);
-                break;
+                
             } 
             i++;
+            
         }
         if(lettre !== tab[i]) {
-            echec++;
-        }
+            echec++;}
+        
     }
-    alert('FÉLICITATION ! VOUS AVEZ RENTRÉE ' + echec+ ' MAUVAISE LETTRE');
+    alert(`FÉLICITATION ! VOUS AVEZ ENTRÉ ${echec} MAUVAISES LETTRES`);
 }
 
 guessLetter();
