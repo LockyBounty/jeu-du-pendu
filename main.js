@@ -17,6 +17,10 @@ function guessLetter() {
     let echec = 0;
     while (verifTab.join() !== tab.join()) {
         let lettre = prompt(`DEVINER LE MOT SECRET : ${verifTab}\nLes lettre(s) devinée(s) sont ${memory}`).toUpperCase();
+        while(lettre.length > 1) {
+            alert('ENTRÉE UN SEUL CARACTÉRE !');
+            return guessLetter();
+        }
         let vrai = 0;
         let faux = 0;
         verifContenu(lettre);
