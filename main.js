@@ -16,25 +16,25 @@ function verifContenu(mot) {
 function guessLetter() {
     let echec = 0;
     while (verifTab.join() !== tab.join()) {
-        let lettre = prompt(`DEVINER LE MOT SECRET : ${verifTab}\nLes lettre(s) devinée(s) sont ${memory}`).toUpperCase();
-        while(lettre.length > 1) {
-            alert('ENTRÉE UN SEUL CARACTÉRE !');
+        let lettre = prompt(`DEVINEZ LE MOT SECRET : ${verifTab}\nVous avez entré : ${memory}`).toUpperCase();
+        while (lettre.length > 1) {
+            alert('ENTREZ UN SEUL CARACTERE !');
             return guessLetter();
         }
-        let vrai = 0;
-        let faux = 0;
+        let vrai;
+        let faux;
         verifContenu(lettre);
         for (i = 0; i < tab.length; i++) {
             if (lettre === tab[i]) {
-                alert('BIEN !');
+                alert('LETTRE TROUVÉE !');
                 verifTab.splice(i, 1, tab[i]);
-                vrai = 1;
+                vrai = true;
             } else {
-                faux = 2;
+                faux = true;
             }
         }
-        if(vrai !== 1 && faux === 2) {
-            alert('RATÉE');
+        if (vrai !== true && faux === true) {
+            alert('RATÉ');
             echec++;
         }   
     }
